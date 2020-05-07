@@ -1,6 +1,6 @@
 {
   "name": "redux-refresh",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A redux state preservation library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,8 +30,5 @@
     "ts-node": "^8.9.1",
     "typescript": "^3.8.3"
   },
-  "dependencies": {
-    "bcrypt": "^4.0.1",
-    "crypto-js": "^4.0.0"
-  }
+  "dependencies": {}
 }

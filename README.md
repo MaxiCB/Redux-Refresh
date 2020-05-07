@@ -9,32 +9,39 @@ yarn add redux-refresh
 
 ## Usage
 
-### Javascript
+Redux-Refresh is a library meant to solve the problem of losing state on a page refresh.
 
-```javascript
-var reduxRefresh = require("redux-refresh");
-var helloRefresh = reduxRefresh.testLib("Hello World!");
-console.log(helloRefresh);
-```
-
-```sh
-Output should be 'This is from Redux-Refresh: Hello World!'
-```
-
-### TypeScript
+### Example
 
 ```typescript
-import { testLib } from "redux-refresh";
-const helloRefresh = testLib("Hello World!");
-console.log(helloRefresh);
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import { preserveState, retrieveState } from "redux-refresh";
+
+const testing = {
+  test: "Hello!",
+  two: "World",
+};
+
+window.addEventListener("unload", () => {
+  console.log("Unloading");
+  preserveState(testing);
+});
+window.addEventListener("load", () => {
+  console.log("Loading");
+  console.log("Retrieved: ", retrieveState());
+});
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
 ```
 
 ```sh
-Output should be 'This is from Redux-Refresh: Hello World!'
-```
-
-## Test
-
-```sh
-npm run test
+Output should be 'Retrieved: {test: "Hello!", two: "World"}'
 ```
