@@ -1,8 +1,22 @@
-import { expect } from "chai";
+import { expect, assert } from "chai";
+import { AES } from "crypto-js";
 import * as lib from "../dist/index";
-describe("Redux-Refresh Function Test", () => {
-  it("Should Return 'This is from Redux-Refresh: Hello World!'", () => {
-    const result = lib.testLib("Hello World!");
-    expect(result).to.equal("This is from Redux-Refresh: Hello World!");
+
+const stateExample = {
+  authentication: {
+    token: "long-token",
+    user: { id: "1", name: "user", email: "email@email.com" },
+  },
+};
+
+describe("Should Return State", () => {
+  it("Should Return State as String", () => {
+    const state = lib.preserveState(stateExample);
+    assert.isString(state);
+  });
+  it("Should Return State as Object", () => {
+    const sent = lib.preserveState(stateExample);
+    const state = lib.retrieveState(sent);
+    expect(state).to.deep.equal(stateExample);
   });
 });

@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/MaxiCB/Redux-Refresh#readme",
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/chai": "^4.2.11",
+    "@types/crypto-js": "^3.1.45",
     "@types/jest": "^25.2.1",
     "@types/node": "^13.13.4",
     "@types/pluralize": "0.0.29",
@@ -28,5 +30,8 @@
     "ts-node": "^8.9.1",
     "typescript": "^3.8.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "crypto-js": "^4.0.0"
+  }
 }

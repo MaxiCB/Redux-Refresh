@@ -1,11 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * @Method: Example function of the library.
- * @Param {string}
+ * @Method: Preserving Redux State
+ * @Param {object}
  * @Return {string}
  */
-function testLib(str) {
-    return "This is from Redux-Refresh: " + str;
+function preserveState(state) {
+    var json = JSON.stringify(state);
+    window.localStorage.setItem("redux-refresh", json);
+    return json;
 }
-exports.testLib = testLib;
+exports.preserveState = preserveState;
+/**
+ * @Method: Retrieving Redux State
+ * @Param {state}
+ * @Return {object}
+ */
+function retrieveState() {
+    var result = JSON.parse(window.localStorage.getItem("redux-refresh"));
+    return result;
+}
+exports.retrieveState = retrieveState;

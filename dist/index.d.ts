@@ -1,6 +1,12 @@
 /**
- * @Method: Example function of the library.
- * @Param {string}
+ * @Method: Preserving Redux State
+ * @Param {object}
  * @Return {string}
  */
-export declare function testLib(str: string): string;
+export declare function preserveState(state: object): string;
+/**
+ * @Method: Retrieving Redux State
+ * @Param {state}
+ * @Return {object}
+ */
+export declare function retrieveState(): object;
