@@ -18,6 +18,7 @@ exports.preserveState = preserveState;
  */
 function retrieveState() {
     var result = JSON.parse(window.localStorage.getItem("redux-refresh"));
+    window.localStorage.removeItem("redux-refresh");
     return result;
 }
 exports.retrieveState = retrieveState;

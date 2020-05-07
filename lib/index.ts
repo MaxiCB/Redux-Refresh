@@ -18,5 +18,6 @@ export function preserveState(state: object): string {
  */
 export function retrieveState(): object {
   const result = JSON.parse(window.localStorage.getItem("redux-refresh")!);
+  window.localStorage.removeItem("redux-refresh");
   return result;
 }
