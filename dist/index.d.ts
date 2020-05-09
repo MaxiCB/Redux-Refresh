@@ -1,12 +1,14 @@
+declare class Refresher {
+    private _secret;
+    constructor(secret: string);
+    private getKey;
+    encrypt(state: object): string;
+    decrypt(value: string): any;
+}
 /**
- * @Method: Preserving Redux State
- * @Param {object}
- * @Return {string}
+ * @Method: Initialize Redux-Refresh
+ * @Param {string}
+ * @Return {Refresher}
  */
-export declare function preserveState(state: object): string;
-/**
- * @Method: Retrieving Redux State
- * @Param {state}
- * @Return {object}
- */
-export declare function retrieveState(): object;
+export declare function initRefresh(secret: string): Refresher;
+export {};
